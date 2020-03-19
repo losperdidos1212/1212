@@ -1,0 +1,167 @@
+<item>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white] especial dragon ball [COLOR lime]([COLOR red]series todas[COLOR lime])[/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+
+ 
+<regex>
+<name>makelist8</name>
+<listrepeat><![CDATA[
+<SetViewMode>55</SetViewMode>
+<title>[COLOR aquamarine][COLOR aquamarine][B][LIGHT][LOWERCASE][CAPITALIZE][makelist8.param1][/CAPITALIZE][/LOWERCASE][/LIGHT][/B][/COLOR]</title>
+<link>$doregex[makelist5]</link>
+<thumbnail>https://www.seriespapaya.net/uploads/[makelist8.param2]</thumbnail>
+ <fanart>https://www.seriespapaya.net/uploads/[makelist8.param2]</fanart>
+]]></listrepeat>
+<expres><![CDATA[(?s)titulo":"(.*?)","img":"uploads..(.*?)","urla":"serie..(.*?)"]]></expres>
+<page>https://www.seriespapaya.nu/buscar.php?term=dragon%20ball</page>
+ <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
+</regex>
+ 
+ 
+ 
+<
+ 
+<regex>
+<name>makelist5</name>
+<listrepeat><![CDATA[
+<SetViewMode>55</SetViewMode>
+<title>[COLOR aquamarine][COLOR aquamarine][B][LIGHT][LOWERCASE][CAPITALIZE][makelist5.param2][/CAPITALIZE][/LOWERCASE][/LIGHT][/B][/COLOR]</title>
+<link>$doregex[torete]</link>
+<thumbnail>https://www.seriespapaya.net/uploads/[makelist8.param2]</thumbnail>
+ <fanart>https://www.seriespapaya.net/uploads/[makelist8.param2]</fanart>
+]]></listrepeat>
+<expres><![CDATA[class=".*?href="([^"']+).*?sp;([^<']+).*?]]></expres>
+<page>https://www.seriespapaya.nu/serie/[makelist8.param3]</page>
+  <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
+</regex>
+ 
+ 
+   
+<regex>
+<name>torete</name>
+<listrepeat><![CDATA[
+<SetwatchMode>55</SetwatchMode>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR yellow][makelist5.param2]  [COLOR white][torete.param2] [COLOR red][torete.param1]
+[/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+ <link>$doregex[torete1]</link>
+<thumbnail>https://www.seriespapaya.nu/[makelist2.param1]</thumbnail>
+<fanart>https://www.seriespapaya.nu/[makelist2.param1]</fanart>
+]]></listrepeat>
+<expres><![CDATA[(?i)mtos">.*?\n.*?">\n.*?images/(.*?).png" />\n.*?div>\n.*?">\n.*?\n.*?\n.*?online/(clipwatching.*?|flix555.*?|gamovideo.*?|vidoza.*?|jetload.*?|GOUD.*?|FEMBED.*?|ok.*?).png.*?</div>\n.*?denlace">\n.*?href="(.*?)".*?]]></expres>
+<page>https://www.seriespapaya.nu/[makelist5.param1]</page>
+ <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
+</regex>
+ 
+<regex>
+<name>torete4</name>
+<expres>location.href='(.*?)'</expres>
+<page>https://www.seriespapaya.net[torete.param3]</page>
+ <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
+</regex>
+ 
+   <regex>
+<name>cloud</name>
+<expres>$pyFunction:('$doregex[torete4]').replace('cloudvideo.tv/','cloudvideo.tv/embed-')</expres>
+<page></page>
+ <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
+</regex>
+ 
+<regex>
+<name>torete1</name>
+<expres><![CDATA[#$pyFunction
+def GetLSProData(page_data,Cookie_Jar,m,url= '$doregex[torete4]'):
+    import re, requests, resolveurl, xbmc
+    if 'gamo' in url:
+        try:
+            from resolveurl.plugins.lib import jsunpack
+            ua = 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'
+            url='$doregex[torete4]'
+            s=requests.session()
+            rsource=s.get(url, headers={'User-Agent': ua},  verify=False)
+            source=s.get(url, headers={'User-Agent': ua},  verify=False)
+            pack = re.findall('javascript.*?(eval\(function\(p,a,c,k,e,d.*)', source.text)[0]
+            unpack=jsunpack.unpack(pack).replace('\\', '')
+            return re.findall('file:\s*"(http.*?)"', unpack)[0]+'|User-Agent='+ua
+        except:
+            u = xbmc.executebuiltin('XBMC.Notification([B][LOWERCASE][CAPITALIZE][COLOR white]enlace  [COLOR red]borrado [/CAPITALIZE][/LOWERCASE][/B][/COLOR],[B][LOWERCASE][CAPITALIZE][COLOR white]elige otro [/CAPITALIZE][/LOWERCASE][/B][/COLOR], 4000)')  
+        return u
+    if 'prostream' in url:
+        try:
+            from resolveurl.plugins.lib import jsunpack
+            ua = 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'
+            url='$doregex[torete4]'
+            s=requests.session()
+            rsource=s.get(url, headers={'User-Agent': ua},  verify=False)
+            source=s.get(url, headers={'User-Agent': ua},  verify=False)
+            pack = re.findall('javascript.*?(eval\(function\(p,a,c,k,e,d.*)', source.text)[0]
+            unpack=jsunpack.unpack(pack).replace('\\', '')
+            return re.findall('sources:."(http.*?)"', unpack)[0]+'|User-Agent='+ua
+        except:
+            u = xbmc.executebuiltin('XBMC.Notification([B][LOWERCASE][CAPITALIZE][COLOR white]enlace  [COLOR red]borrado [/CAPITALIZE][/LOWERCASE][/B][/COLOR],[B][LOWERCASE][CAPITALIZE][COLOR white]elige otro [/CAPITALIZE][/LOWERCASE][/B][/COLOR], 4000)')  
+        return u
+    if 'clipwat' in url:
+        try:
+            a = re.findall('res: (1080|720|360)',requests.get('$doregex[torete4]',headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'},verify=False).content)[0]
+            if '1080' in a:
+                return re.findall('(https.*?mp4).. type: .*? res: 1080',requests.get('$doregex[torete4]',headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'},verify=False).content)[0]    
+            if '720' in a:
+                return re.findall('(https.*?mp4).. type: .*? res: 720',requests.get('$doregex[torete4]',headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'},verify=False).content)[0]
+            if '360' in a:
+                return re.findall('(https.*?mp4).. type: .*? res: 360',requests.get('$doregex[torete4]',headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'},verify=False).content)[0]
+        except:
+            u = xbmc.executebuiltin('XBMC.Notification([B][LOWERCASE][CAPITALIZE][COLOR white]enlace  [COLOR red]borrado [/CAPITALIZE][/LOWERCASE][/B][/COLOR],[B][LOWERCASE][CAPITALIZE][COLOR white]elige otro [/CAPITALIZE][/LOWERCASE][/B][/COLOR], 4000)')
+    elif 'fli' in url:
+        try:
+            from resolveurl.plugins.lib import jsunpack
+            ua = 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'
+            url='$doregex[torete4]'
+            s=requests.session()
+            rsource=s.get(url, headers={'User-Agent': ua},  verify=False)
+            source=s.get(url, headers={'User-Agent': ua},  verify=False)
+            pack = re.findall('javascript.*?(eval\(function\(p,a,c,k,e,d.*)', source.text)[0]
+            unpack=jsunpack.unpack(pack).replace('\\', '')
+            return re.findall('file:\s*"(http.*?)"', unpack)[0]+'|User-Agent='+ua
+        except:
+            u = xbmc.executebuiltin('XBMC.Notification([B][LOWERCASE][CAPITALIZE][COLOR white]enlace  [COLOR red]borrado [/CAPITALIZE][/LOWERCASE][/B][/COLOR],[B][LOWERCASE][CAPITALIZE][COLOR white]elige otro [/CAPITALIZE][/LOWERCASE][/B][/COLOR], 4000)')  
+        return u
+    elif 'playedvid' in url:
+        try:
+            from resolveurl.plugins.lib import jsunpack
+            ua = 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'
+            url='$doregex[torete4]'
+            s=requests.session()
+            rsource=s.get(url, headers={'User-Agent': ua},  verify=False)
+            source=s.get(url, headers={'User-Agent': ua},  verify=False)
+            pack = re.findall('javascript.*?(eval\(function\(p,a,c,k,e,d.*)', source.text)[0]
+            unpack=jsunpack.unpack(pack).replace('\\', '')
+            return re.findall('sources:..*?src:"(.*?)"', unpack)[0]+'|User-Agent='+ua
+        except:
+            u = xbmc.executebuiltin('XBMC.Notification([B][LOWERCASE][CAPITALIZE][COLOR white]enlace  [COLOR red]borrado [/CAPITALIZE][/LOWERCASE][/B][/COLOR],[B][LOWERCASE][CAPITALIZE][COLOR white]elige otro [/CAPITALIZE][/LOWERCASE][/B][/COLOR], 4000)')  
+        return u
+    elif 'jetload' in url:
+        try:
+            return re.findall('(http.*?m3u8)',requests.get('$doregex[torete4]',headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36', 'Referer': '$doregex[getUrl]', 'Origin': 'https://jetload.net/'},verify=False).content)[0]
+        except:
+            u = xbmc.executebuiltin('XBMC.Notification([B][LOWERCASE][CAPITALIZE][COLOR white]enlace  [COLOR red]borrado [/CAPITALIZE][/LOWERCASE][/B][/COLOR],[B][LOWERCASE][CAPITALIZE][COLOR white]elige otro [/CAPITALIZE][/LOWERCASE][/B][/COLOR], 4000)')  
+        return u
+    elif 'cloud' in url:
+        try:
+            return re.findall('source src="(.*?)"',requests.get('$doregex[cloud]' + '.html',headers={'user-agent':'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'},verify=False).content)[0]
+        except:
+            u = xbmc.executebuiltin('XBMC.Notification([B][LOWERCASE][CAPITALIZE][COLOR white]enlace  [COLOR red]borrado [/CAPITALIZE][/LOWERCASE][/B][/COLOR],[B][LOWERCASE][CAPITALIZE][COLOR white]elige otro [/CAPITALIZE][/LOWERCASE][/B][/COLOR], 4000)')  
+        return u
+    else:
+        try:
+            url= '$doregex[torete4]'
+            u = resolveurl.resolve(url)        
+            return u
+        except:
+            u = xbmc.executebuiltin('XBMC.Notification([B][LOWERCASE][CAPITALIZE][COLOR white]enlace  [COLOR red]borrado [/CAPITALIZE][/LOWERCASE][/B][/COLOR],[B][LOWERCASE][CAPITALIZE][COLOR white]elige otro [/CAPITALIZE][/LOWERCASE][/B][/COLOR], 4000)')  
+        return u
+]]></expres>
+<page></page>
+<referer></referer>
+</regex>
+ 
+<thumbnail>https://as01.epimg.net/meristation/imagenes/2019/04/05/noticias/1554455353_146989_1554455527_noticia_normal.jpg</thumbnail>
+<fanart>https://www.eldescomunal.com/wp-content/uploads/2018/01/dragonballsuper.jpg</fanart>
+</item>
