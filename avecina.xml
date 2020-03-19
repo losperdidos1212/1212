@@ -1,0 +1,25 @@
+<title>[B][LOWERCASE][CAPITALIZE][/CAPITALIZE][COLOR white]especial la que se avecina. temporadas y especiales[/LOWERCASE][/B][/COLOR]</title>
+<thumbnail></thumbnail>
+<fanart></fanart>
+ <link>$doregex[regex1]</link>
+<regex>
+<name>regex1</name>
+<listrepeat><![CDATA[
+<SetViewMode></SetViewMode>
+<title>[B][COLOR orangered][regex1.param3][/B][/COLOR]</title>
+<link>$doregex[regex2]master.m3u8</link>
+<thumbnail>[regex1.param2]</thumbnail>
+<fanart>[regex1.param2]</fanart>
+ 
+]]></listrepeat>
+<expres><![CDATA[(?s)content_left">.*?href="(.*?)".*?src="(.*?)".*? alt="(.*?)".*?]]></expres>
+<page>https://comunidadmontepinar.es/episodios/capitulos/</page>
+</regex>
+<regex>
+<name>regex2</name>
+<expres><![CDATA[iframe src="(.*?)index.html"]]></expres>
+<page>[regex1.param1]</page>
+</regex>
+  <thumbnail>https://pbs.twimg.com/profile_images/1115365669019824133/bA4Thiz8_400x400.jpg</thumbnail>
+<fanart>https://album.mediaset.es/cimg/807030/2019/11/04/fd2b23d77558dc42c044deff1a02d0f4_4fd3.jpg</fanart>
+</item>
