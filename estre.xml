@@ -18,6 +18,11 @@
 
 </item>
 
+
+
+
+</item>
+
 <item>
 <title>si yo fuera rico </title>
 <link>$doregex[id3]</link>
@@ -37,4 +42,3 @@ def GetLSProData(page_data,Cookie_Jar,m):
  <thumbnail>https://es.web.img3.acsta.net/pictures/19/09/02/10/53/5293647.jpg</thumbnail>
 <fanart>https://www.buñol.es/sites/default/files/styles/portfolio_large/public/eventos/si_yo_fuera_ricocine_montecarlo_2020.jpg?itok=Kq8Uzw1M</fanart>
 </item>
-
