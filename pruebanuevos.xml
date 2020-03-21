@@ -30,7 +30,7 @@
 ]]></listrepeat>
 <expres><![CDATA[(?s)class="card__cardMovie.*?src="(.*?)".*?true" href="(.*?)".*?-- -->(.*?)<]]></expres>
  
-<page>https://www.mitele.es/series-online/la-que-se-avecina/</page>
+<page>https://www.mitele.es/series-online/la-que-se-avecina/temporada-11/Capitulo-146-40_1008214075058/player/</page>
 </regex>
  
  
