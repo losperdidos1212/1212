@@ -12,7 +12,7 @@
 
  
 <item>
-<title>[B][LOWERCASE][CAPITALIZE][COLOR white] supervivientes[COLOR white]([COLOR gold]galas[COLOR white])[/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<title>la que se avecina</title>
 <link>$doregex[makelist5]</link>
  
  
@@ -30,7 +30,7 @@
 ]]></listrepeat>
 <expres><![CDATA[(?s)class="card__cardMovie.*?src="(.*?)".*?true" href="(.*?)".*?-- -->(.*?)<]]></expres>
  
-<page>https://www.mitele.es/programas-tv/supervivientes/</page>
+<page>https://www.mitele.es/series-online/la-que-se-avecina/</page>
 </regex>
  
  
