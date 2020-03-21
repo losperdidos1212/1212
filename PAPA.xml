@@ -1,68 +1,43 @@
 <item>
-<title>[B][LOWERCASE][CAPITALIZE][COLOR white] especial dragon ball [COLOR lime]([COLOR red]series todas[COLOR lime])[/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
-
- 
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white] lo nuevo HOY   en papaya[/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[makelist2]</link>
 <regex>
-<name>makelist8</name>
+<name>makelist2</name>
 <listrepeat><![CDATA[
-<SetViewMode>55</SetViewMode>
-<title>[COLOR aquamarine][COLOR aquamarine][B][LIGHT][LOWERCASE][CAPITALIZE][makelist8.param1][/CAPITALIZE][/LOWERCASE][/LIGHT][/B][/COLOR]</title>
-<link>$doregex[makelist5]</link>
-<thumbnail>https://www.seriespapaya.net/uploads/[makelist8.param2]</thumbnail>
- <fanart>https://www.seriespapaya.net/uploads/[makelist8.param2]</fanart>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR lime] [COLOR white][makelist2.param3] [makelist2.param4][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<thumbnail>https://www.seriespapaya.nu/[makelist2.param1]</thumbnail>
+<fanart>https://www.seriespapaya.nu/[makelist2.param1]</fanart>
+<link>$doregex[torete]</link>    
 ]]></listrepeat>
-<expres><![CDATA[(?s)titulo":"(.*?)","img":"uploads..(.*?)","urla":"serie..(.*?)"]]></expres>
-<page>https://www.seriespapaya.nu/buscar.php?term=dragon%20ball</page>
- <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
+<expres><![CDATA[(?s)div class="ulticap">.*?src="(.*?)".*?href="(.*?)">(.*?)<.*?(Temporada.*?). C]]></expres>
+<page>https://www.seriespapaya.nu/</page><agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
 </regex>
- 
- 
- 
-<
- 
-<regex>
-<name>makelist5</name>
-<listrepeat><![CDATA[
-<SetViewMode>55</SetViewMode>
-<title>[COLOR aquamarine][COLOR aquamarine][B][LIGHT][LOWERCASE][CAPITALIZE][makelist5.param2][/CAPITALIZE][/LOWERCASE][/LIGHT][/B][/COLOR]</title>
-<link>$doregex[torete]</link>
-<thumbnail>https://www.seriespapaya.net/uploads/[makelist8.param2]</thumbnail>
- <fanart>https://www.seriespapaya.net/uploads/[makelist8.param2]</fanart>
-]]></listrepeat>
-<expres><![CDATA[class=".*?href="([^"']+).*?sp;([^<']+).*?]]></expres>
-<page>https://www.seriespapaya.nu/serie/[makelist8.param3]</page>
-  <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
-</regex>
- 
  
    
 <regex>
 <name>torete</name>
 <listrepeat><![CDATA[
 <SetwatchMode>55</SetwatchMode>
-<title>[B][LOWERCASE][CAPITALIZE][COLOR yellow][makelist5.param2]  [COLOR white][torete.param2] [COLOR red][torete.param1]
+<title>[B][LOWERCASE][CAPITALIZE][COLOR yellow][makelist2.param4]  [COLOR white][torete.param2] [COLOR red][torete.param1]
 [/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
  <link>$doregex[torete1]</link>
 <thumbnail>https://www.seriespapaya.nu/[makelist2.param1]</thumbnail>
 <fanart>https://www.seriespapaya.nu/[makelist2.param1]</fanart>
 ]]></listrepeat>
 <expres><![CDATA[(?i)mtos">.*?\n.*?">\n.*?images/(.*?).png" />\n.*?div>\n.*?">\n.*?\n.*?\n.*?online/(clipwatching.*?|flix555.*?|gamovideo.*?|vidoza.*?|jetload.*?|GOUD.*?|FEMBED.*?|ok.*?).png.*?</div>\n.*?denlace">\n.*?href="(.*?)".*?]]></expres>
-<page>https://www.seriespapaya.nu/[makelist5.param1]</page>
- <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
+<page>https://www.seriespapaya.nu/[makelist2.param2]</page><agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
 </regex>
  
 <regex>
 <name>torete4</name>
 <expres>location.href='(.*?)'</expres>
-<page>https://www.seriespapaya.net[torete.param3]</page>
- <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
+<page>https://www.seriespapaya.nu[torete.param3]</page><agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
 </regex>
  
    <regex>
 <name>cloud</name>
 <expres>$pyFunction:('$doregex[torete4]').replace('cloudvideo.tv/','cloudvideo.tv/embed-')</expres>
-<page></page>
- <agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
+<page></page><agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
 </regex>
  
 <regex>
@@ -158,10 +133,10 @@ def GetLSProData(page_data,Cookie_Jar,m,url= '$doregex[torete4]'):
             u = xbmc.executebuiltin('XBMC.Notification([B][LOWERCASE][CAPITALIZE][COLOR white]enlace  [COLOR red]borrado [/CAPITALIZE][/LOWERCASE][/B][/COLOR],[B][LOWERCASE][CAPITALIZE][COLOR white]elige otro [/CAPITALIZE][/LOWERCASE][/B][/COLOR], 4000)')  
         return u
 ]]></expres>
-<page></page>
+<page></page><agent>Mozilla/5.0 (Windows NT 10.0; rv:72.0) Gecko/20100101 Firefox/72.0</agent>
 <referer></referer>
 </regex>
  
-<thumbnail>https://as01.epimg.net/meristation/imagenes/2019/04/05/noticias/1554455353_146989_1554455527_noticia_normal.jpg</thumbnail>
-<fanart>https://www.eldescomunal.com/wp-content/uploads/2018/01/dragonballsuper.jpg</fanart>
+<thumbnail>https://beautifulgishi.com/wp-content/uploads/2018/09/series.jpg</thumbnail>
+<fanart>http://toretetattoo.com/wp-content/uploads/2018/06/logotorete500px.png</fanart>
 </item>
