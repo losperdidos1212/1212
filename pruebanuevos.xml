@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ 
+<SetViewMode>502</SetViewMode>
+ 
+ 
+<item>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR aqua]==============[COLOR white]menu supervivientes[COLOR aqua]===========[/COLOR][/CAPITALIZE][/LOWERCASE][/B]</title>
+<link>ignoreme</link>
+<thumbnail>https://s3-eu-west-1.amazonaws.com/mds-wp-publiespcorp-pro/wp-content/uploads/20190430115433/Secci%C3%B3n_Supervivientes_iE.jpg</thumbnail>
+<fanart>https://static.elcorreo.com/www/multimedia/201803/08/media/cortadas/supervivientes-k9eB-U501214056094IMH-624x385@El%20Correo.jpg</fanart>
+</item>
+
+ 
+<item>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white] supervivientes[COLOR white]([COLOR gold]galas[COLOR white])[/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[makelist5]</link>
+ 
+ 
+ 
+<regex>
+<name>makelist5</name>
+<listrepeat><![CDATA[
+<SetViewMode>502</SetViewMode>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white][makelist5.param3][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[link]/index_0_av.m3u8</link>
+ 
+<thumbnail>[makelist5.param1]</thumbnail>
+<fanart>[makelist5.param1]</fanart>
+<info>$doregex[infor]</info>
+]]></listrepeat>
+<expres><![CDATA[(?s)class="card__cardMovie.*?src="(.*?)".*?true" href="(.*?)".*?-- -->(.*?)<]]></expres>
+ 
+<page>https://www.mitele.es/programas-tv/supervivientes/</page>
+</regex>
+ 
+ 
+ 
+ 
+ <regex>
+<name>media</name>
+<expres><![CDATA[dataMediaId":"(.*?)"]]></expres>
+<page>https://www.mitele.es[makelist5.param2]</page>
+</regex>
+ 
+ 
+ 
+ <regex>
+<name>link</name>
+<expres>hls","stream":"(.*?)/master</expres>
+<page>https://caronte.mediaset.es/delivery/vod/ooyala/$doregex[media]/mtweb</page>
+</regex>
+ 
+ 
+<thumbnail>https://verprogramasonline.com/wp-content/uploads/2019/04/supervivientes-galas-online.jpg</thumbnail>
+<fanart>https://static.elcorreo.com/www/multimedia/201803/08/media/cortadas/supervivientes-k9eB-U501214056094IMH-624x385@El%20Correo.jpg</fanart>
+</item>
+
+
+
+ 
+<item>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white] conexion honduras [COLOR white]([COLOR gold]debates[COLOR white])  [COLOR gold][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[makelist5]</link>
+ 
+ 
+ 
+ 
+<regex>
+<name>makelist5</name>
+<listrepeat><![CDATA[
+<SetViewMode>502</SetViewMode>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white][makelist5.param3][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[link]/index_0_av.m3u8</link>
+<thumbnail>[makelist5.param1]</thumbnail>
+<fanart>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</fanart>
+<info>$doregex[infor]</info>
+]]></listrepeat>
+<expres><![CDATA[(?s)card__cardMovie-.*?src="(.*?)".*?a class="card__linkHover.*?draggable="true" href="(.*?player/).*? -->(.*?)<.*?]]></expres>
+ 
+<page><![CDATA[https://www.mitele.es/programas-tv/supervivientes/conexion_honduras/]]></page>
+</regex>
+
+ 
+
+ 
+ <regex>
+<name>media</name>
+<expres><![CDATA[dataMediaId":"(.*?)"]]></expres>
+<page>https://www.mitele.es[makelist5.param2]</page>
+</regex>
+ 
+ 
+ 
+ <regex>
+<name>link</name>
+<expres>hls","stream":"(.*?)/master</expres>
+<page>https://caronte.mediaset.es/delivery/vod/ooyala/$doregex[media]/mtweb</page>
+</regex>
+ 
+ 
+<thumbnail>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</thumbnail>
+<fanart>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</fanart>
+</item>
+
+<item>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white] supervivientes [COLOR white]([COLOR gold]ultima hora[COLOR white])  [COLOR gold][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[makelist5]</link>
+ 
+ 
+ 
+ 
+<regex>
+<name>makelist5</name>
+<listrepeat><![CDATA[
+<SetViewMode>502</SetViewMode>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white][makelist5.param3][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[link]/index_0_av.m3u8</link>
+<thumbnail>[makelist5.param1]</thumbnail>
+<fanart>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</fanart>
+<info>$doregex[infor]</info>
+]]></listrepeat>
+<expres><![CDATA[(?s)card__cardMovie-.*?src="(.*?)".*?a class="card__linkHover.*?draggable="true" href="(.*?player/).*? -->(.*?)<.*?]]></expres>
+ 
+<page><![CDATA[https://www.mitele.es/programas-tv/supervivientes/ultima_hora/]]></page>
+</regex>
+
+ 
+
+ 
+ <regex>
+<name>media</name>
+<expres><![CDATA[dataMediaId":"(.*?)"]]></expres>
+<page>https://www.mitele.es[makelist5.param2]</page>
+</regex>
+ 
+ 
+ 
+ <regex>
+<name>link</name>
+<expres>hls","stream":"(.*?)/master</expres>
+<page>https://caronte.mediaset.es/delivery/vod/ooyala/$doregex[media]/mtweb</page>
+</regex>
+ 
+ 
+<thumbnail>https://imagenes.20minutos.es/files/image_656_370/files/fp/uploads/imagenes/2020/02/05/logo-de-supervivientes.r_d.438-270.jpeg</thumbnail>
+<fanart>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</fanart>
+</item>
+
+
+ 
+<item>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white] supervivientes [COLOR white]([COLOR gold]tierra de nadie[COLOR white])  [COLOR gold][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[makelist5]</link>
+ 
+ 
+ 
+ 
+<regex>
+<name>makelist5</name>
+<listrepeat><![CDATA[
+<SetViewMode>502</SetViewMode>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white][makelist5.param3][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[link]/index_0_av.m3u8</link>
+<thumbnail>[makelist5.param1]</thumbnail>
+<fanart>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</fanart>
+<info>$doregex[infor]</info>
+]]></listrepeat>
+<expres><![CDATA[(?s)card__cardMovie-.*?src="(.*?)".*?a class="card__linkHover.*?draggable="true" href="(.*?player/).*? -->(.*?)<.*?]]></expres>
+ 
+<page><![CDATA[https://www.mitele.es/programas-tv/supervivientes/tierra_de_nadie/]]></page>
+</regex>
+
+ 
+
+ 
+ <regex>
+<name>media</name>
+<expres><![CDATA[dataMediaId":"(.*?)"]]></expres>
+<page>https://www.mitele.es[makelist5.param2]</page>
+</regex>
+ 
+ 
+ 
+ <regex>
+<name>link</name>
+<expres>hls","stream":"(.*?)/master</expres>
+<page>https://caronte.mediaset.es/delivery/vod/ooyala/$doregex[media]/mtweb</page>
+</regex>
+ 
+ 
+<thumbnail>https://www.formulatv.com/images/programas/posters/1700/1772/1_m1.jpg</thumbnail>
+<fanart>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</fanart>
+</item>
+
+
+
+
+ 
+<item>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white] supervivientes [COLOR white]([COLOR gold]resumenes diarios[COLOR white])  [COLOR gold][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[makelist5]</link>
+ 
+ 
+ 
+ 
+<regex>
+<name>makelist5</name>
+<listrepeat><![CDATA[
+<SetViewMode>502</SetViewMode>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white][makelist5.param3][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[link]/index_0_av.m3u8</link>
+<thumbnail>[makelist5.param1]</thumbnail>
+<fanart>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</fanart>
+<info>$doregex[infor]</info>
+]]></listrepeat>
+<expres><![CDATA[(?s)card__cardMovie-.*?src="(.*?)".*?a class="card__linkHover.*?draggable="true" href="(.*?player/).*? -->(.*?)<.*?]]></expres>
+ 
+<page><![CDATA[https://www.mitele.es/programas-tv/supervivientes/resumen_diario/]]></page>
+</regex>
+
+ 
+
+ 
+ <regex>
+<name>media</name>
+<expres><![CDATA[dataMediaId":"(.*?)"]]></expres>
+<page>https://www.mitele.es[makelist5.param2]</page>
+</regex>
+ 
+ 
+ 
+ <regex>
+<name>link</name>
+<expres>hls","stream":"(.*?)/master</expres>
+<page>https://caronte.mediaset.es/delivery/vod/ooyala/$doregex[media]/mtweb</page>
+</regex>
+ 
+ 
+<thumbnail>https://verprogramasonline.com/wp-content/uploads/2019/04/sv-diario.jpg</thumbnail>
+<fanart>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</fanart>
+</item>
+
+<item>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white] supervivientes [COLOR white]([COLOR gold]especiales[COLOR white])  [COLOR gold][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[makelist5]</link>
+ 
+ 
+ 
+ 
+<regex>
+<name>makelist5</name>
+<listrepeat><![CDATA[
+<SetViewMode>502</SetViewMode>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR white][makelist5.param3][/CAPITALIZE][/LOWERCASE][/B][/COLOR]</title>
+<link>$doregex[link]/index_0_av.m3u8</link>
+<thumbnail>[makelist5.param1]</thumbnail>
+<fanart>https://verprogramasonline.com/wp-content/uploads/2019/04/debate-supervivientes.jpg</fanart>
+<info>$doregex[infor]</info>
+]]></listrepeat>
+<expres><![CDATA[(?s)card__cardMovie-.*?src="(.*?)".*?a class="card__linkHover.*?draggable="true" href="(.*?player/).*? -->(.*?)<.*?]]></expres>
+ 
+<page><![CDATA[https://www.mitele.es/programas-tv/supervivientes/especiales/]]></page>
+</regex>
+
+ 
+
+ 
+ <regex>
+<name>media</name>
+<expres><![CDATA[dataMediaId":"(.*?)"]]></expres>
+<page>https://www.mitele.es[makelist5.param2]</page>
+</regex>
+ 
+ 
+ 
+ <regex>
+<name>link</name>
+<expres>hls","stream":"(.*?)/master</expres>
+<page>https://caronte.mediaset.es/delivery/vod/ooyala/$doregex[media]/mtweb</page>
+</regex>
+ 
+ 
+<thumbnail>https://s3-eu-west-1.amazonaws.com/mds-wp-publiespcorp-pro/wp-content/uploads/20190430115433/Secci%C3%B3n_Supervivientes_iE.jpg</thumbnail>
+<fanart>https://imagenes.20minutos.es/files/article_amp/uploads/2020/02/21/logo-de-supervivientes.jpeg</fanart>
+</item>
+
+<item>
+<title>[B][LOWERCASE][CAPITALIZE][COLOR aqua]==============[COLOR white]menu supervivientes[COLOR aqua]===========[/COLOR][/CAPITALIZE][/LOWERCASE][/B]</title>
+<link>ignoreme</link>
+<thumbnail>https://s3-eu-west-1.amazonaws.com/mds-wp-publiespcorp-pro/wp-content/uploads/20190430115433/Secci%C3%B3n_Supervivientes_iE.jpg</thumbnail>
+<fanart>https://static.elcorreo.com/www/multimedia/201803/08/media/cortadas/supervivientes-k9eB-U501214056094IMH-624x385@El%20Correo.jpg</fanart>
+</item>
